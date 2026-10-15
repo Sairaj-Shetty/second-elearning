@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: learnpilot
+      POSTGRES_PASSWORD: learnpilot
+      POSTGRES_DB: learnpilot
+    volumes:
+      - learnpilot_pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+volumes:
+  learnpilot_pgdata:
